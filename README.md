@@ -1,3 +1,7 @@
+# To pull image
+
+docker pull satvik403/server-app:latest
+
 # Change your connection string to
 
 const sequelize = new Sequelize(${databaseName}, ${username}, ${password}, {host: ${serviceNameOfDatabaseInComposeFile},dialect: 'postgres'});
