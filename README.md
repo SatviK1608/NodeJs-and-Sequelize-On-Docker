@@ -1,9 +1,6 @@
 # Change your connection string to
 
-const sequelize = new Sequelize(${databaseName}, ${username}, ${password}, {
-  host: ${serviceNameOfDatabaseInComposeFile},
-  dialect: 'postgres',
-});
+const sequelize = new Sequelize(${databaseName}, ${username}, ${password}, {host: ${serviceNameOfDatabaseInComposeFile},dialect: 'postgres'});
 
 # To build container
 1. change directory to server.
