@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:latest
+    container_name: my-postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: blaBla
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - shared-network
+
+  app:
+    build: .
+    container_name: my-node
+    environment:
+      DB_HOST: db
+      DB_USER: postgres
+      DB_PASSWORD: 123
+      DB_NAME: blaBla
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    volumes:
+      - .:/app
+    networks:
+      - shared-network
+
+volumes:
+  pgdata:
+
+networks:
+  shared-network:
