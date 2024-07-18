@@ -1,4 +1,5 @@
 # Change your connection string to
+
 const sequelize = new Sequelize(${databaseName}, ${username}, ${password}, {
   host: ${serviceNameOfDatabaseInComposeFile},
   dialect: 'postgres',
